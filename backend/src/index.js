@@ -1,7 +1,14 @@
 const express = require('express');
+const mongoose = require('mongoose');
+//MongoDB (Não relacional)
+mongoose.connect('mongodb+srv://dgsampar:@Root@clustersemanaomnistack-pvlxj.mongodb.net/SemanaOmnistack10?retryWrites=true&w=majority',{
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+});
 
 const app = express();
 app.use(express.json());
+
 
 //Métodos HTTP: GET, POST, PUT, DELETE
 /*Tipos de parâmetros:
