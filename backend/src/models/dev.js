@@ -5,6 +5,9 @@ const devSchema = new mongoose.Schema({
   bio: String,
   avatar_url: String,
   techs: [String],
+  location: {
+    
+  }
 });
 
 module.exports = mongoose.model('Dev', devSchema);
