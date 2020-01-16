@@ -1,6 +1,5 @@
 const { Router } = require('express');
-const axios = require('axios');
-const Dev = require('./models/dev');
+const DevController = require('./controllers/DevController');
 
 const routes = Router();
 
@@ -10,25 +9,6 @@ Query params: request.query(Filtros, ordenação, paginação ...) get*
 Route params: request.params(Identificar um recurso na alteração, ou remoção) put ou delete*
 Body: request.body (Dados para criação ou alteração de um registro) post ou put*
 */
+routes.post('/devs', DevController.store);
 
-routes.post('/devs', async (request, response) => {
-  const {github_username , techs} = request.body;
-  const apiResponse = await axios.get(`https://api.github.com/users/${github_username}`);
-  //AWAIT: espera a resposta da api
-  const { name = login, avatar_url, bio } = apiResponse.data
-
-  const techsArrays = techs.split(',').map(tech => tech.trim());
-
-  const dev = await Dev.create({
-    github_username,
-    name,
-    avatar_url,
-    bio,
-    techs: techsArrays,
-  });
-
-  console.log(name, avatar_url, bio, github_username, techs);
-
-  return response.json(dev);
-});
 module.exports = routes;
