@@ -35,7 +35,7 @@ module.exports = {
 
     return response.json(dev);
   },
-
+/*
   async update(request, response){
     const{ github_username, techs, bio, avatar_url, latitude, longitude} = request.body;
     let dev = await Dev.findOne({ github_username });
@@ -54,7 +54,7 @@ module.exports = {
     }
     return response.json(dev);
   },
-/*
+
   async destroy(request, response){
     const {github_username} = request.body;
     let dev = await Dev.findOne({ github_username });
