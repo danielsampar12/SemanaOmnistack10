@@ -1,8 +1,9 @@
 import React, {useState, useEffect} from 'react';
-import './global.css'
-import './App.css'
-import './Sidebar.css'
-import './Main.css'
+import api from './services/api';
+import './global.css';
+import './App.css';
+import './Sidebar.css';
+import './Main.css';
 //Componente: Bloco isolado de JSX: HTML, CSS e JS, o qual não interfere no restante da aplicação
 //Propriedade: Informações que um componete PAI passa para um componente FILHO
 //Estado: Informações mantidas pelo componente (Lembrar: imutabilidade)
@@ -31,17 +32,24 @@ function App() {
 
   async function handleAddDev(e){
     e.preventDefault(); 
-    
+
+    const response = await api.post('/devs', {
+      github_username,
+      techs,
+      latitude,
+      longitude,
+    })
+    console.log(response.data);
   }
 
   return (
     <div id="app">
       <aside>
         <strong>Cadastrar</strong>
-        <form >
+        <form onSubmit={handleAddDev}>
           <div className="input-block">
             <label htmlFor="">Usuário do GitHub</label>
-            <input name="github_username" id="github_username" required value={github_username} onChange={e => setGithubUsername}/>
+            <input name="github_username" id="github_username" required value={github_username} onChange={e => setGithubUsername(e.target.value)}/>
           </div>
 
           <div className="input-block">
