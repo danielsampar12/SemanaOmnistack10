@@ -37,7 +37,7 @@ module.exports = {
   },
 /*
   async update(request, response){
-    const{ github_username, techs, bio, avatar_url, latitude, longitude} = request.body;
+    const{ github_username, techs, bio, avatar_url, latitude, longitude} = request.params;
     let dev = await Dev.findOne({ github_username });
     if(dev){
       const techsArray = parseStringAsArray(techs);
@@ -56,7 +56,7 @@ module.exports = {
   },
 
   async destroy(request, response){
-    const {github_username} = request.body;
+    const {github_username} = request.params;
     let dev = await Dev.findOne({ github_username });
     if(dev){
       dev = await dev.destroy({
