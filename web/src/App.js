@@ -23,7 +23,16 @@ function App() {
 
   async function handleAddDev(dev){
     const response = await api.post('/devs', dev);
-    setDevs([...devs, response.data]);
+    var novoUser = true;
+    var checkDev = devs.map( function(d){
+      if(d.data === dev.data){
+        novoUser = false;
+      }
+    });
+    if(novoUser){
+      setDevs([...devs, response.data]);
+    }
+    
   }
 
   return (
