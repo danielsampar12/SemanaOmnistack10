@@ -14,7 +14,7 @@ routes.get('/devs', DevController.index); //listar todos os devs
 routes.post('/devs', DevController.store); //cadastrar devs
 
 routes.get('/search', SearchController.index); //listar devs perto e por techs
-routes.put('/devs', DevController.update);// atualizar perfil
+//routes.put('/devs', DevController.update);// atualizar perfil
 
 //routes.delete('/delete', DevController.destroy);//deletar perfil
 
