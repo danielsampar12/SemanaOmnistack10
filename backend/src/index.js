@@ -5,7 +5,7 @@ const routes = require('./routes');
 //MongoDB (Não relacional)
 const app = express();
 
-mongoose.connect('mongodb+srv://dgsampar:@Root@clustersemanaomnistack-pvlxj.mongodb.net/SemanaOmnistack10?retryWrites=true&w=majority',{
+mongoose.connect('mongodb+srv://dgsampar:@Root@cluster0-fbwil.mongodb.net/test?retryWrites=true&w=majority',{
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
